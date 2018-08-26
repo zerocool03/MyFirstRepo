@@ -8,30 +8,25 @@ public class SpellBob {
 			int testcase = Integer.parseInt(bufferedReader.readLine());
 			StringBuilder sb = new StringBuilder();
 			while (testcase-- > 0) {
-				char[] s1 = bufferedReader.readLine().toCharArray();
-				char[] s2 = bufferedReader.readLine().toCharArray();
-				String output = "bob";
+				String s1 = bufferedReader.readLine();
+				String s2 = bufferedReader.readLine();
 
-				for (char ch : output.toCharArray()) {
-
-					for (int i = 0; i < s1.length; i++) {
-						if (s1[i] == ch || s2[i] == ch) {
-
-							s1[i] = '0';
-							s2[i] = '0';
-							break;
-						}
-					}
-
-				}
 				boolean mainflag = false;
-				for (int i = 0; i < s1.length; i++) {
-					if (!(s1[i] == '0' && s2[i] == '0')) {
-						mainflag = true;
-						break;
-					}
-				}
-				if (!mainflag)
+				if ((s1.charAt(0) == 'b' || s2.charAt(0) == 'b') && (s1.charAt(1) == 'b' || s2.charAt(1) == 'b')
+						&& (s1.charAt(2) == 'o' || s2.charAt(2) == 'o'))
+
+					mainflag = true;
+
+				else if ((s1.charAt(0) == 'b' || s2.charAt(0) == 'b') && (s1.charAt(1) == 'o' || s2.charAt(1) == 'o')
+						&& (s1.charAt(2) == 'b' || s2.charAt(2) == 'b'))
+
+					mainflag = true;
+				else if ((s1.charAt(0) == 'o' || s2.charAt(0) == 'o') && (s1.charAt(1) == 'b' || s2.charAt(1) == 'b')
+						&& (s1.charAt(2) == 'b' || s2.charAt(2) == 'b'))
+
+					mainflag = true;
+
+				if (mainflag)
 					sb.append("yes\n");
 				else {
 					sb.append("no\n");
@@ -39,7 +34,7 @@ public class SpellBob {
 			}
 			System.out.println(sb.toString());
 		} catch (Exception e) {
-			
+
 		}
 	}
 
