@@ -1,6 +1,6 @@
 class Main {
 	// Print all subsets of given set[]
-	static void printSubsets(char set[]) {
+	static void printSubsets(String set[]) {
 		int n = set.length;
 
 		// Run a loop for printing all 2^n
@@ -18,13 +18,15 @@ class Main {
 				// are not
 				if ((i & (1 << j)) > 0)
 					System.out.print(set[j] + " ");
-
+			System.out.print("}");
+			System.out.println();
 		}
 	}
 
 	// Driver code
 	public static void main(String[] args) {
-		char set[] = { 'a', 'b', 'c' };
+		//Ka shi ml re ka to ka
+		String set[] = { "ka", "shi", "ml","re","ka","to","ka" };
 		printSubsets(set);
 	}
 }
