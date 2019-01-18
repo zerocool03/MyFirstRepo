@@ -3,7 +3,7 @@
 public class Permutation {
 	public static void main(String[] args) {
 		//Ka shi ml re ka to ka
-		String str = "kashimlrekatoka";
+		String str = "012345";
 		int n = str.length();
 		Permutation permutation = new Permutation();
 		permutation.permute(str, 0, n - 1);
@@ -18,7 +18,13 @@ public class Permutation {
 	 */
 	private void permute(String str, int l, int r) {
 		if (l == r)
-			System.out.println(str);
+		{
+			int temp = Integer.parseInt(str);
+			if(temp < 240000)
+			System.out.print("\""+str+"\""+",");
+			
+		}
+			
 		else {
 			for (int i = l; i <= r; i++) {
 				str = swap(str, l, i);
